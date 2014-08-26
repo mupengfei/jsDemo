@@ -6,11 +6,48 @@
     <script>
         window.onload = function(){
             var sc = document.getElementById('stepsChart');
-            sc.appendChild()
+            var img = document.createElement('img');
+            img.src = 'green.jpg';
+            img.id = 'green';
+            img.style.width = '80px';
+            img.style.height = '80px';
+            img.style.position = 'absolute';
+            img.style.left = '20px';
+            var imgJ = document.createElement('img');
+            imgJ.src = 'jiantou.jpg';
+            imgJ.id = 'imgJ';
+            imgJ.style.width = '20px';
+            imgJ.style.height = '80px';
+            imgJ.style.position = 'absolute';
+            imgJ.style.left = '50px';
+            imgJ.style.top = '80px';
+            var img2 = document.createElement('img');
+            img2.src = 'green.jpg';
+            img2.id = 'img2';
+            img2.style.width = '80px';
+            img2.style.height = '80px';
+            img2.style.position = 'absolute';
+            img2.style.left = '20px';
+            sc.appendChild(img);
+            sc.appendChild(imgJ);
+            img2.style.top = getTop(sc.firstChild) ;
+            debugger;
+            sc.appendChild(img2);
+
         } ;
+        function getTop(e){
+            var offset=e.offsetTop;
+            if(e.offsetParent!=null) offset+=getTop(e.offsetParent);
+            return offset;
+        }
+        function getLeft(e){
+            var offset=e.offsetLeft;
+            if(e.offsetParent!=null) offset+=getLeft(e.offsetParent);
+            return offset;
+        }
     </script>
 </head>
 <body>
-    <div id="stepsChart"  style="position:absolute; padding:0; margin:0; width:20%; height:80%;background:#CCC"/>
+    <div id="stepsChart"  style="position:absolute; padding:0; margin:0; width:20%; height:80%;"/>
 </body>
 </html>
